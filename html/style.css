@@ -1,0 +1,52 @@
+:root {
+  --color-black: #363636;
+  --color-white: #fefefe;
+
+  --background-color: var(--color-white);
+  --text-color: var(--color-black);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: var(--color-black);
+    --text-color: var(--color-white);
+  }
+}
+
+/* Example usage */
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  height: 2em;
+}
+
+p {
+  font-size: 1em;
+  margin-bottom: 20px;
+}
+
+a {
+  color: var(--text-color);
+  text-decoration: none;
+  margin-left: 0.2em;
+  margin-right: 0.2em;
+}
+
+h1 {
+  font-size: 3em;
+  margin-bottom: 20px;
+}
+
+.main {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
