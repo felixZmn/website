@@ -32,7 +32,7 @@ service:
 
 # This block is for setting up the ingress for more information can be found here: https://kubernetes.io/docs/concepts/services-networking/ingress/
 ingress:
-  enabled: true
+  enabled: false
   className: "nginx"
   annotations:
     cert-manager.io/cluster-issuer: "letsencrypt-production"
@@ -48,6 +48,22 @@ ingress:
    - secretName: website-tls
      hosts:
        - test.example.de
+
+httpRoute:
+  enabled: false
+  parentRefs:
+  - name: public
+    sectionName: https
+    namespace: envoy
+
+  hostnames:
+  - "test.example.de"
+  # List of rules and filters applied.
+  rules:
+  - matches:
+    - path:
+        type: PathPrefix
+        value: /
 
 resources: {}
   # limits:
