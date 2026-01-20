@@ -2,14 +2,22 @@
 
 ## Intro
 
-## Docker
+## Debugging
+
+```shell
+python3 -m http.server
+```
+
+## Build
+
+### Docker
 
 ```shell
 docker build -t ghcr.io/felixzmn/docker/website:1.0.0 .
 docker push ghcr.io/felixzmn/docker/website:1.0.0
 ```
 
-## Helm
+### Helm
 
 ```shell
 cd helm
