@@ -1,9 +1,9 @@
 replicaCount: 1
 
 image:
-  repository: ghcr.io/felixzmn/docker/website
+  repository: ghcr.io/felixzmn/docker/bentobox
   pullPolicy: IfNotPresent
-  tag: "1.0.0"
+  tag: "2.0.0"
 
 imagePullSecrets:
   - name: regcred
@@ -12,7 +12,7 @@ fullnameOverride: ""
 
 podAnnotations: {}
 podLabels: 
-  app.kubernetes.io/component: website
+  app.kubernetes.io/component: bentobox
 
 
 podSecurityContext: {}
@@ -50,14 +50,14 @@ ingress:
        - test.example.de
 
 httpRoute:
-  enabled: false
+  enabled: true
   parentRefs:
   - name: public
     sectionName: https
     namespace: envoy
 
   hostnames:
-  - "test.example.de"
+  - "bentobox.0x2b.de"
   # List of rules and filters applied.
   rules:
   - matches:
@@ -81,3 +81,10 @@ readinessProbe:
   httpGet:
     path: /
     port: http
+
+config:
+  title: "Welcome to Bento-Box"
+  subtitle: "Your personal landing page"
+  links:
+    - url: "https://www.github.com/felixzmn/"
+      icon: "iconoir-github"
